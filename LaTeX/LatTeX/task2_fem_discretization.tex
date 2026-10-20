@@ -1,0 +1,279 @@
+\documentclass{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+
+\title{Finite Element Discretization of Two-Dimensional Natural Convection}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Finite Element Discretisation}
+
+\subsection{Weak Formulation}
+
+Let $\Omega$ denote the computational domain and
+$\partial\Omega$ its boundary. The velocity vector is
+$\mathbf{U}=(u,v)$. Let $q$, $\boldsymbol{\phi}$,
+and $s$ denote the test functions for the continuity,
+momentum, and energy equations, respectively.
+
+\subsubsection{Continuity Equation}
+
+The continuity equation is
+
+\begin{equation}
+\nabla\cdot\mathbf{U}=0.
+\end{equation}
+
+Multiplying by the scalar test function $q$ gives
+
+\[
+q\,\nabla\cdot\mathbf{U}=0.
+\]
+
+Integrating over the domain gives
+
+\begin{equation}
+\boxed{
+\int_{\Omega}q\,\nabla\cdot\mathbf{U}\,d\Omega=0.
+}
+\end{equation}
+
+This is the weak statement of continuity. Integration by
+parts is not required for this particular formulation.
+Although the velocity is a vector, the continuity equation
+is a scalar equation.
+
+\subsubsection{Momentum Equations}
+
+The two momentum equations can be combined into one
+vector equation:
+
+\begin{equation}
+\rho_0\left[
+\frac{\partial\mathbf{U}}{\partial t}
++(\mathbf{U}\cdot\nabla)\mathbf{U}
+\right]
+=-\nabla p+\mu\nabla^2\mathbf{U}+\mathbf{f}_b.
+\end{equation}
+
+where $\mathbf{U}=(u,v)$ is the velocity vector,
+$p$ is the pressure, $\rho_0$ is the reference density,
+$\mu$ is the dynamic viscosity, and $\mathbf{f}_b$
+is the buoyancy force per unit volume, given by
+
+\begin{equation}
+\mathbf{f}_b=
+\begin{pmatrix}
+0\\
+\rho_0g\beta(T-T_{\mathrm{ref}})
+\end{pmatrix}.
+\end{equation}
+
+The buoyancy term appears only in the vertical component
+under the chosen coordinate system.
+
+These are the strong forms: the original differential
+equations before applying the weak-form procedure.
+
+\paragraph{Step 1: Multiply by a vector test function}
+
+Let $\boldsymbol{\phi}$ be a vector test function.
+Take the dot product with it and integrate over $\Omega$:
+
+\begin{equation}
+\begin{aligned}
+&\int_\Omega \rho_0\boldsymbol{\phi}\cdot
+\left[
+\frac{\partial\mathbf{U}}{\partial t}
++(\mathbf{U}\cdot\nabla)\mathbf{U}
+\right]d\Omega\\
+&=-\int_\Omega\boldsymbol{\phi}\cdot\nabla p\,d\Omega
++\mu\int_\Omega\boldsymbol{\phi}\cdot
+\nabla^2\mathbf{U}\,d\Omega\\
+&\quad+\int_\Omega\boldsymbol{\phi}\cdot
+\mathbf{f}_b\,d\Omega.
+\end{aligned}
+\end{equation}
+
+\paragraph{Step 2: Apply integration by parts}
+
+For the pressure term, use the divergence theorem:
+
+\begin{equation}
+\begin{aligned}
+-\int_\Omega\boldsymbol{\phi}\cdot\nabla p\,d\Omega
+={}&\int_\Omega p\,\nabla\cdot\boldsymbol{\phi}\,d\Omega\\
+&-\int_{\partial\Omega}p\,
+\boldsymbol{\phi}\cdot\mathbf{n}\,d\Gamma.
+\end{aligned}
+\end{equation}
+
+For the viscous term:
+
+\begin{equation}
+\begin{aligned}
+\mu\int_\Omega\boldsymbol{\phi}\cdot
+\nabla^2\mathbf{U}\,d\Omega
+={}&-\mu\int_\Omega
+\nabla\boldsymbol{\phi}:\nabla\mathbf{U}\,d\Omega\\
+&+\mu\int_{\partial\Omega}
+\boldsymbol{\phi}\cdot
+\frac{\partial\mathbf{U}}{\partial n}\,d\Gamma.
+\end{aligned}
+\end{equation}
+
+Here, $\mathbf{n}$ is the outward unit normal to the
+boundary, $d\Gamma$ is a boundary element, and the colon
+denotes the sum of products of corresponding matrix
+components.
+
+\paragraph{Step 3: Write the weak momentum equation}
+
+Substituting these expressions into the integrated
+momentum equation and rearranging gives
+
+\begin{equation}
+\boxed{
+\begin{aligned}
+&\int_\Omega \rho_0\boldsymbol{\phi}\cdot
+\left[
+\frac{\partial\mathbf{U}}{\partial t}
++(\mathbf{U}\cdot\nabla)\mathbf{U}
+\right]d\Omega\\
+&+\mu\int_\Omega
+\nabla\boldsymbol{\phi}:\nabla\mathbf{U}\,d\Omega\\
+&-\int_\Omega p\,\nabla\cdot\boldsymbol{\phi}\,d\Omega
+-\int_\Omega\boldsymbol{\phi}\cdot
+\mathbf{f}_b\,d\Omega=B_m.
+\end{aligned}
+}
+\end{equation}
+
+where the boundary contribution is
+
+\begin{equation}
+\begin{aligned}
+B_m={}&-\int_{\partial\Omega}p\,
+\boldsymbol{\phi}\cdot\mathbf{n}\,d\Gamma\\
+&+\mu\int_{\partial\Omega}
+\boldsymbol{\phi}\cdot
+\frac{\partial\mathbf{U}}{\partial n}\,d\Gamma.
+\end{aligned}
+\end{equation}
+
+For a no-slip wall, the velocity is prescribed and the
+momentum test function is zero on that wall. The
+corresponding boundary terms vanish there. For other
+boundary conditions, the boundary terms must be treated
+according to the specified physical conditions.
+
+This is the weak form of the momentum equations.
+
+\subsubsection{Energy Equation}
+
+The energy equation is
+
+\begin{equation}
+\frac{\partial T}{\partial t}
++\mathbf{U}\cdot\nabla T
+=\alpha\nabla^2T.
+\end{equation}
+
+\paragraph{Step 1: Multiply by a scalar test function}
+
+Multiply both sides by the scalar test function $s$:
+
+\begin{equation}
+s\frac{\partial T}{\partial t}
++s\,\mathbf{U}\cdot\nabla T
+=\alpha s\nabla^2T.
+\end{equation}
+
+Integrating over the domain gives
+
+\begin{equation}
+\begin{aligned}
+&\int_\Omega s\frac{\partial T}{\partial t}\,d\Omega
++\int_\Omega s\,\mathbf{U}\cdot\nabla T\,d\Omega\\
+&=\alpha\int_\Omega s\nabla^2T\,d\Omega.
+\end{aligned}
+\end{equation}
+
+\paragraph{Step 2: Apply integration by parts}
+
+Applying integration by parts to the diffusion term gives
+
+\begin{equation}
+\begin{aligned}
+\alpha\int_\Omega s\nabla^2T\,d\Omega
+={}&-\alpha\int_\Omega
+\nabla s\cdot\nabla T\,d\Omega\\
+&+\alpha\int_{\partial\Omega}
+s\frac{\partial T}{\partial n}\,d\Gamma.
+\end{aligned}
+\end{equation}
+
+\paragraph{Step 3: Write the weak energy equation}
+
+Moving the diffusion term to the left gives
+
+\begin{equation}
+\boxed{
+\begin{aligned}
+&\int_\Omega s\frac{\partial T}{\partial t}\,d\Omega
++\int_\Omega s\,\mathbf{U}\cdot\nabla T\,d\Omega\\
+&+\alpha\int_\Omega
+\nabla s\cdot\nabla T\,d\Omega=B_T,
+\end{aligned}
+}
+\end{equation}
+
+where
+
+\begin{equation}
+B_T=\alpha\int_{\partial\Omega}
+s\frac{\partial T}{\partial n}\,d\Gamma.
+\end{equation}
+
+For prescribed-temperature boundaries, the test function
+$s$ is zero on those boundaries. For insulated boundaries,
+$\partial T/\partial n=0$. Under these conditions, the
+corresponding boundary contributions vanish.
+
+This is the weak form of the energy equation.
+
+\subsection{Finite Element Approximation}
+
+The weak forms are discretised by approximating the
+continuous fields using finite element basis functions.
+For example,
+
+\begin{align}
+u_h(x,y,t)&=\sum_{j=1}^{N_u}U_j(t)\phi_j(x,y),\\
+v_h(x,y,t)&=\sum_{j=1}^{N_v}V_j(t)\psi_j(x,y),\\
+p_h(x,y,t)&=\sum_{j=1}^{N_p}P_j(t)\chi_j(x,y),\\
+T_h(x,y,t)&=\sum_{j=1}^{N_T}\Theta_j(t)\eta_j(x,y).
+\end{align}
+
+Here, the basis functions define the spatial approximation,
+while the coefficients are the unknown degrees of freedom.
+
+The discrete velocity and pressure fields are substituted
+into the weak momentum and continuity equations. Similarly,
+the discrete velocity and temperature fields are substituted
+into the weak energy equation. The test functions are
+chosen from the corresponding finite element spaces.
+
+This procedure produces a finite system of algebraic
+equations for the unknown degrees of freedom. For transient
+problems, an appropriate time-discretisation method is
+also required to approximate the time derivatives and solve
+for the fields at successive time steps.
+
+
+\end{document}
