@@ -1,0 +1,342 @@
+\documentclass{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+
+\title{Derivation of Governing Equations for Two-Dimensional Natural Convection}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+In this study, a
+two-dimensional natural convection model is considered for an
+incompressible fluid. The governing equations are derived from the conservation of
+mass, momentum, and thermal energy. The resulting equations
+describe the fluid velocity, pressure, and temperature fields.
+
+\section{Assumptions}
+
+The following assumptions are adopted:
+
+\begin{enumerate}
+    \item The fluid is Newtonian and incompressible.
+    \item The flow is laminar.
+    \item The fluid properties are constant, except for density
+    variation in the buoyancy term.
+    \item The Boussinesq approximation is valid.
+    \item The fluid contains no NEPCM particles and no phase-change
+    effects are considered.
+    \item There are no internal heat sources.
+    \item The flow is two-dimensional, with velocity components
+    $u$ and $v$ in the $x$ and $y$ directions, respectively.
+\end{enumerate}
+
+The coordinate system is defined such that the $x$-direction is
+horizontal and the positive $y$-direction is vertically upward.
+Gravity acts in the negative $y$-direction.
+
+\section{Continuity Equation}
+
+The continuity equation represents the conservation of mass.
+The general mass conservation equation is
+
+\begin{equation}
+\frac{\partial \rho}{\partial t}
++\nabla\cdot(\rho\mathbf{u})=0,
+\label{eq:mass_general}
+\end{equation}
+
+where $\rho$ is the fluid density, $t$ is time, and
+$\mathbf{u}$ is the velocity vector.
+
+For an incompressible fluid with constant reference density
+$\rho_0$, the density is independent of time and position
+in the continuity equation. And, $\rho_0$ = $\rho$ = constant. Therefore,
+
+\begin{equation}
+\frac{\partial \rho}{\partial t}=0,
+\qquad
+\nabla\cdot(\rho_0\mathbf{u})
+=\rho_0\nabla\cdot\mathbf{u}.
+\end{equation}
+
+Substituting these expressions into
+Equation~\eqref{eq:mass_general} gives
+
+\begin{equation}
+\rho_0\nabla\cdot\mathbf{u}=0.
+\end{equation}
+
+Since $\rho_0$ is non-zero, the continuity equation becomes
+
+\begin{equation}
+\nabla\cdot\mathbf{u}=0.
+\end{equation}
+
+For a two-dimensional velocity field
+$\mathbf{u}=(u,v)$, the continuity equation is
+
+\begin{equation}
+\boxed{
+\frac{\partial u}{\partial x}
++\frac{\partial v}{\partial y}=0
+}
+\label{eq:continuity}
+\end{equation}
+
+This equation ensures that the fluid satisfies mass
+conservation without local expansion or compression.
+
+\section{Momentum Equations}
+
+The momentum equations are derived from Newton's second law,
+which states that the rate of change of momentum is equal to
+the net force acting on the fluid.
+
+For a Newtonian fluid, the momentum conservation equation is
+
+\begin{equation}
+\rho\frac{D\mathbf{u}}{Dt}
+=-\nabla p+\mu\nabla^2\mathbf{u}
++\rho\mathbf{g},
+\label{eq:momentum_general}
+\end{equation}
+
+where $\rho$ is the fluid density, $p$ is pressure, $\mu$ is
+dynamic viscosity, and $\mathbf{g}$ is the gravitational
+acceleration vector.
+
+The material derivative describes the acceleration of a
+moving fluid particle and is defined as
+
+\begin{equation}
+\frac{D}{Dt}
+=\frac{\partial}{\partial t}
++\mathbf{u}\cdot\nabla.
+\end{equation}
+
+For two-dimensional flow, the horizontal and vertical
+acceleration components are
+
+\begin{align}
+\frac{Du}{Dt}
+&=\frac{\partial u}{\partial t}
++u\frac{\partial u}{\partial x}
++v\frac{\partial u}{\partial y},
+\\
+\frac{Dv}{Dt}
+&=\frac{\partial v}{\partial t}
++u\frac{\partial v}{\partial x}
++v\frac{\partial v}{\partial y}.
+\end{align}
+
+The momentum equations can be simplified by applying the
+constant-viscosity and incompressibility assumptions. The
+viscous terms become $\mu\nabla^2u$ and $\mu\nabla^2v$,
+respectively.
+
+\subsection{Boussinesq Approximation}
+
+In natural convection, temperature differences cause small
+variations in fluid density. Under the Boussinesq approximation,
+density is approximated by
+
+\begin{equation}
+\rho\approx\rho_0
+\left[1-\beta(T-T_{\mathrm{ref}})\right],
+\label{eq:density}
+\end{equation}
+
+where $\rho_0$ is the reference density, $\beta$ is the
+volumetric thermal expansion coefficient, $T$ is the local
+temperature, and $T_{\mathrm{ref}}$ is the reference
+temperature.
+
+Density variations are neglected in the inertia and viscous
+terms but retained in the gravitational force. After removing
+the reference hydrostatic pressure contribution, the effective
+buoyancy force per unit volume in the vertical direction is
+
+\begin{equation}
+f_b=\rho_0g\beta(T-T_{\mathrm{ref}}),
+\label{eq:buoyancy}
+\end{equation}
+
+where $g$ is the magnitude of gravitational acceleration.
+With the positive $y$-direction pointing upward, this term
+is positive for fluid warmer than the reference temperature.
+
+\subsection{Horizontal Momentum Equation}
+
+In the horizontal direction, gravity has no direct component.
+Therefore, the horizontal momentum equation is
+
+\begin{equation}
+\rho_0\frac{Du}{Dt}
+=-\frac{\partial p}{\partial x}
++\mu\nabla^2u.
+\end{equation}
+
+Expanding the material derivative and the Laplacian gives
+
+\begin{equation}
+\boxed{
+\begin{aligned}
+\rho_0\left(
+\frac{\partial u}{\partial t}
++u\frac{\partial u}{\partial x}
++v\frac{\partial u}{\partial y}
+\right)
+={}&-\frac{\partial p}{\partial x}\\
+&+\mu\left(
+\frac{\partial^2u}{\partial x^2}
++\frac{\partial^2u}{\partial y^2}
+\right).
+\end{aligned}
+}
+\label{eq:xmomentum}
+\end{equation}
+
+The pressure-gradient term represents the pressure force,
+while the viscous term describes the diffusion of horizontal
+momentum due to fluid viscosity.
+
+\subsection{Vertical Momentum Equation}
+
+In the vertical direction, the momentum equation includes
+the buoyancy contribution derived using the Boussinesq
+approximation. Thus,
+
+\begin{equation}
+\rho_0\frac{Dv}{Dt}
+=-\frac{\partial p}{\partial y}
++\mu\nabla^2v
++\rho_0g\beta(T-T_{\mathrm{ref}}).
+\end{equation}
+
+Expanding the material derivative and the Laplacian gives
+
+\begin{equation}
+\boxed{
+\begin{aligned}
+\rho_0\left(
+\frac{\partial v}{\partial t}
++u\frac{\partial v}{\partial x}
++v\frac{\partial v}{\partial y}
+\right)
+={}&-\frac{\partial p}{\partial y}\\
+&+\mu\left(
+\frac{\partial^2v}{\partial x^2}
++\frac{\partial^2v}{\partial y^2}
+\right)\\
+&+\rho_0g\beta(T-T_{\mathrm{ref}}).
+\end{aligned}
+}
+\label{eq:ymomentum}
+\end{equation}
+
+The buoyancy term drives upward motion in regions warmer
+than the reference temperature and downward motion in
+regions colder than the reference temperature.
+
+\section{Energy Equation}
+
+The energy equation represents the conservation of thermal
+energy. For a fluid with constant thermal conductivity and
+specific heat capacity, with no internal heat generation,
+the thermal energy equation is
+
+\begin{equation}
+\rho_0c_p\frac{DT}{Dt}
+=k\nabla^2T,
+\label{eq:energy_general}
+\end{equation}
+
+where $c_p$ is the specific heat capacity at constant
+pressure, $k$ is thermal conductivity, and $T$ is temperature.
+
+The material derivative of temperature is
+
+\begin{equation}
+\frac{DT}{Dt}
+=\frac{\partial T}{\partial t}
++u\frac{\partial T}{\partial x}
++v\frac{\partial T}{\partial y}.
+\end{equation}
+
+Substituting this expression into
+Equation~\eqref{eq:energy_general} gives
+
+\begin{equation}
+\rho_0c_p\left(
+\frac{\partial T}{\partial t}
++u\frac{\partial T}{\partial x}
++v\frac{\partial T}{\partial y}
+\right)
+=k\nabla^2T.
+\end{equation}
+
+Dividing by $\rho_0c_p$ and defining the thermal
+diffusivity as
+
+\begin{equation}
+\alpha=\frac{k}{\rho_0c_p},
+\end{equation}
+
+the energy equation becomes
+
+\begin{equation}
+\frac{\partial T}{\partial t}
++u\frac{\partial T}{\partial x}
++v\frac{\partial T}{\partial y}
+=\alpha\nabla^2T.
+\end{equation}
+
+Expanding the Laplacian gives the final two-dimensional
+energy equation:
+
+\begin{equation}
+\boxed{
+\begin{aligned}
+\frac{\partial T}{\partial t}
++u\frac{\partial T}{\partial x}
++v\frac{\partial T}{\partial y}
+=\alpha\left(
+\frac{\partial^2T}{\partial x^2}
++\frac{\partial^2T}{\partial y^2}
+\right).
+\end{aligned}
+}
+\label{eq:energy}
+\end{equation}
+
+The left-hand side represents the local and convective
+changes in temperature, while the right-hand side represents
+heat conduction within the fluid.
+
+\section{Boundary Conditions}
+
+For stationary, impermeable no-slip walls,
+\begin{equation}
+u=v=0
+\quad \text{on all walls}.
+\end{equation}
+
+The hot and cold vertical walls satisfy
+\begin{align}
+T&=T_h &&\text{at }x=0,\\
+T&=T_c &&\text{at }x=L.
+\end{align}
+
+The insulated horizontal walls satisfy
+\begin{equation}
+\frac{\partial T}{\partial y}=0
+\quad\text{at }y=0,H.
+\end{equation}
+
+\end{document}
