@@ -1,7 +1,6 @@
-\documentclass{article}
+\documentclass[preprint,3p,number]{elsarticle}
 
 \usepackage{amsmath,amssymb}
-\usepackage[a4paper,margin=2.5cm]{geometry}
 
 \title{Derivation of Governing Equations for Two-Dimensional Natural Convection}
 \author{}
@@ -46,40 +45,31 @@ The continuity equation represents the conservation of mass.
 The general mass conservation equation is
 
 \begin{equation}
-\frac{\partial \rho}{\partial t}
-+\nabla\cdot(\rho\mathbf{u})=0,
+\nabla\cdot(\rho\vec{u})=0,
 \label{eq:mass_general}
 \end{equation}
 
 where $\rho$ is the fluid density, $t$ is time, and
-$\mathbf{u}$ is the velocity vector.
+$\vec{u}$ is the velocity vector.
 
 For an incompressible fluid with constant reference density
-$\rho_0$, the density is independent of time and position
-in the continuity equation. And, $\rho_0$ = $\rho$ = constant. Therefore,
-
-\begin{equation}
-\frac{\partial \rho}{\partial t}=0,
-\qquad
-\nabla\cdot(\rho_0\mathbf{u})
-=\rho_0\nabla\cdot\mathbf{u}.
-\end{equation}
-
-Substituting these expressions into
+$\rho_0$, the density is constant, so
+$\nabla\cdot(\rho_0\vec{u})=\rho_0\nabla\cdot\vec{u}$.
+Substituting this expression into
 Equation~\eqref{eq:mass_general} gives
 
 \begin{equation}
-\rho_0\nabla\cdot\mathbf{u}=0.
+\rho_0\nabla\cdot\vec{u}=0.
 \end{equation}
 
 Since $\rho_0$ is non-zero, the continuity equation becomes
 
 \begin{equation}
-\nabla\cdot\mathbf{u}=0.
+\nabla\cdot\vec{u}=0.
 \end{equation}
 
 For a two-dimensional velocity field
-$\mathbf{u}=(u,v)$, the continuity equation is
+$\vec{u}=(u,v)$, the continuity equation is
 
 \begin{equation}
 \boxed{
@@ -101,8 +91,8 @@ the net force acting on the fluid.
 For a Newtonian fluid, the momentum conservation equation is
 
 \begin{equation}
-\rho\frac{D\mathbf{u}}{Dt}
-=-\nabla p+\mu\nabla^2\mathbf{u}
+\rho\frac{D\vec{u}}{Dt}
+=-\nabla p+\mu\nabla^2\vec{u}
 +\rho\mathbf{g},
 \label{eq:momentum_general}
 \end{equation}
@@ -115,9 +105,7 @@ The material derivative describes the acceleration of a
 moving fluid particle and is defined as
 
 \begin{equation}
-\frac{D}{Dt}
-=\frac{\partial}{\partial t}
-+\mathbf{u}\cdot\nabla.
+\frac{D}{Dt}=\vec{u}\cdot\nabla.
 \end{equation}
 
 For two-dimensional flow, the horizontal and vertical
@@ -125,13 +113,11 @@ acceleration components are
 
 \begin{align}
 \frac{Du}{Dt}
-&=\frac{\partial u}{\partial t}
-+u\frac{\partial u}{\partial x}
+&=u\frac{\partial u}{\partial x}
 +v\frac{\partial u}{\partial y},
 \\
 \frac{Dv}{Dt}
-&=\frac{\partial v}{\partial t}
-+u\frac{\partial v}{\partial x}
+&=u\frac{\partial v}{\partial x}
 +v\frac{\partial v}{\partial y}.
 \end{align}
 
@@ -188,8 +174,7 @@ Expanding the material derivative and the Laplacian gives
 \boxed{
 \begin{aligned}
 \rho_0\left(
-\frac{\partial u}{\partial t}
-+u\frac{\partial u}{\partial x}
+u\frac{\partial u}{\partial x}
 +v\frac{\partial u}{\partial y}
 \right)
 ={}&-\frac{\partial p}{\partial x}\\
@@ -225,8 +210,7 @@ Expanding the material derivative and the Laplacian gives
 \boxed{
 \begin{aligned}
 \rho_0\left(
-\frac{\partial v}{\partial t}
-+u\frac{\partial v}{\partial x}
+u\frac{\partial v}{\partial x}
 +v\frac{\partial v}{\partial y}
 \right)
 ={}&-\frac{\partial p}{\partial y}\\
@@ -264,8 +248,7 @@ The material derivative of temperature is
 
 \begin{equation}
 \frac{DT}{Dt}
-=\frac{\partial T}{\partial t}
-+u\frac{\partial T}{\partial x}
+=u\frac{\partial T}{\partial x}
 +v\frac{\partial T}{\partial y}.
 \end{equation}
 
@@ -274,8 +257,7 @@ Equation~\eqref{eq:energy_general} gives
 
 \begin{equation}
 \rho_0c_p\left(
-\frac{\partial T}{\partial t}
-+u\frac{\partial T}{\partial x}
+u\frac{\partial T}{\partial x}
 +v\frac{\partial T}{\partial y}
 \right)
 =k\nabla^2T.
@@ -291,20 +273,18 @@ diffusivity as
 the energy equation becomes
 
 \begin{equation}
-\frac{\partial T}{\partial t}
-+u\frac{\partial T}{\partial x}
+u\frac{\partial T}{\partial x}
 +v\frac{\partial T}{\partial y}
 =\alpha\nabla^2T.
 \end{equation}
 
 Expanding the Laplacian gives the final two-dimensional
-energy equation:
+energy equation: 
 
 \begin{equation}
 \boxed{
 \begin{aligned}
-\frac{\partial T}{\partial t}
-+u\frac{\partial T}{\partial x}
+u\frac{\partial T}{\partial x}
 +v\frac{\partial T}{\partial y}
 =\alpha\left(
 \frac{\partial^2T}{\partial x^2}
@@ -315,9 +295,10 @@ energy equation:
 \label{eq:energy}
 \end{equation}
 
-The left-hand side represents the local and convective
-changes in temperature, while the right-hand side represents
-heat conduction within the fluid.
+The left-hand side represents convective heat transport,
+while the right-hand side represents heat conduction within
+the fluid. In the steady-state model, the local time
+derivative is zero.
 
 \section{Boundary Conditions}
 
