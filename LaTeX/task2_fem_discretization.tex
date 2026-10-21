@@ -1,7 +1,6 @@
-\documentclass{article}
+\documentclass[preprint,3p,number]{elsarticle}
 
 \usepackage{amsmath,amssymb}
-\usepackage[a4paper,margin=2.5cm]{geometry}
 
 \title{Finite Element Discretization of Two-Dimensional Natural Convection}
 \author{}
@@ -17,29 +16,32 @@
 
 Let $\Omega$ denote the computational domain and
 $\partial\Omega$ its boundary. The velocity vector is
-$\mathbf{U}=(u,v)$. Let $q$, $\boldsymbol{\phi}$,
-and $s$ denote the test functions for the continuity,
-momentum, and energy equations, respectively.
+$\vec{U}=(u,v)$. Let $q$, $\vec{W}$,
+and $\theta$ denote the test functions for the continuity,
+momentum, and energy equations, respectively. The symbol
+$\vec{W}$ denotes the vector momentum test function,
+whereas the unadorned $v$ denotes the vertical velocity
+component.
 
 \subsubsection{Continuity Equation}
 
 The continuity equation is
 
 \begin{equation}
-\nabla\cdot\mathbf{U}=0.
+\nabla\cdot\vec{U}=0.
 \end{equation}
 
 Multiplying by the scalar test function $q$ gives
 
 \[
-q\,\nabla\cdot\mathbf{U}=0.
+q\,\nabla\cdot\vec{U}=0.
 \]
 
 Integrating over the domain gives
 
 \begin{equation}
 \boxed{
-\int_{\Omega}q\,\nabla\cdot\mathbf{U}\,d\Omega=0.
+\int_{\Omega}q\,\nabla\cdot\vec{U}\,d\Omega=0.
 }
 \end{equation}
 
@@ -55,13 +57,12 @@ vector equation:
 
 \begin{equation}
 \rho_0\left[
-\frac{\partial\mathbf{U}}{\partial t}
-+(\mathbf{U}\cdot\nabla)\mathbf{U}
+(\vec{U}\cdot\nabla)\vec{U}
 \right]
-=-\nabla p+\mu\nabla^2\mathbf{U}+\mathbf{f}_b.
+=-\nabla p+\mu\nabla^2\vec{U}+\mathbf{f}_b.
 \end{equation}
 
-where $\mathbf{U}=(u,v)$ is the velocity vector,
+where $\vec{U}=(u,v)$ is the velocity vector,
 $p$ is the pressure, $\rho_0$ is the reference density,
 $\mu$ is the dynamic viscosity, and $\mathbf{f}_b$
 is the buoyancy force per unit volume, given by
@@ -82,20 +83,19 @@ equations before applying the weak-form procedure.
 
 \paragraph{Step 1: Multiply by a vector test function}
 
-Let $\boldsymbol{\phi}$ be a vector test function.
+Let $\vec{W}$ be a vector test function.
 Take the dot product with it and integrate over $\Omega$:
 
 \begin{equation}
 \begin{aligned}
-&\int_\Omega \rho_0\boldsymbol{\phi}\cdot
+&\int_\Omega \rho_0\vec{W}\cdot
 \left[
-\frac{\partial\mathbf{U}}{\partial t}
-+(\mathbf{U}\cdot\nabla)\mathbf{U}
+(\vec{U}\cdot\nabla)\vec{U}
 \right]d\Omega\\
-&=-\int_\Omega\boldsymbol{\phi}\cdot\nabla p\,d\Omega
-+\mu\int_\Omega\boldsymbol{\phi}\cdot
-\nabla^2\mathbf{U}\,d\Omega\\
-&\quad+\int_\Omega\boldsymbol{\phi}\cdot
+&=-\int_\Omega\vec{W}\cdot\nabla p\,d\Omega
++\mu\int_\Omega\vec{W}\cdot
+\nabla^2\vec{U}\,d\Omega\\
+&\quad+\int_\Omega\vec{W}\cdot
 \mathbf{f}_b\,d\Omega.
 \end{aligned}
 \end{equation}
@@ -106,10 +106,10 @@ For the pressure term, use the divergence theorem:
 
 \begin{equation}
 \begin{aligned}
--\int_\Omega\boldsymbol{\phi}\cdot\nabla p\,d\Omega
-={}&\int_\Omega p\,\nabla\cdot\boldsymbol{\phi}\,d\Omega\\
+-\int_\Omega\vec{W}\cdot\nabla p\,d\Omega
+={}&\int_\Omega p\,\nabla\cdot\vec{W}\,d\Omega\\
 &-\int_{\partial\Omega}p\,
-\boldsymbol{\phi}\cdot\mathbf{n}\,d\Gamma.
+\vec{W}\cdot\mathbf{n}\,d\Gamma.
 \end{aligned}
 \end{equation}
 
@@ -117,13 +117,13 @@ For the viscous term:
 
 \begin{equation}
 \begin{aligned}
-\mu\int_\Omega\boldsymbol{\phi}\cdot
-\nabla^2\mathbf{U}\,d\Omega
+\mu\int_\Omega\vec{W}\cdot
+\nabla^2\vec{U}\,d\Omega
 ={}&-\mu\int_\Omega
-\nabla\boldsymbol{\phi}:\nabla\mathbf{U}\,d\Omega\\
+\nabla\vec{W}:\nabla\vec{U}\,d\Omega\\
 &+\mu\int_{\partial\Omega}
-\boldsymbol{\phi}\cdot
-\frac{\partial\mathbf{U}}{\partial n}\,d\Gamma.
+\vec{W}\cdot
+\frac{\partial\vec{U}}{\partial n}\,d\Gamma.
 \end{aligned}
 \end{equation}
 
@@ -140,15 +140,14 @@ momentum equation and rearranging gives
 \begin{equation}
 \boxed{
 \begin{aligned}
-&\int_\Omega \rho_0\boldsymbol{\phi}\cdot
+&\int_\Omega \rho_0\vec{W}\cdot
 \left[
-\frac{\partial\mathbf{U}}{\partial t}
-+(\mathbf{U}\cdot\nabla)\mathbf{U}
+(\vec{U}\cdot\nabla)\vec{U}
 \right]d\Omega\\
 &+\mu\int_\Omega
-\nabla\boldsymbol{\phi}:\nabla\mathbf{U}\,d\Omega\\
-&-\int_\Omega p\,\nabla\cdot\boldsymbol{\phi}\,d\Omega
--\int_\Omega\boldsymbol{\phi}\cdot
+\nabla\vec{W}:\nabla\vec{U}\,d\Omega\\
+&-\int_\Omega p\,\nabla\cdot\vec{W}\,d\Omega
+-\int_\Omega\vec{W}\cdot
 \mathbf{f}_b\,d\Omega=B_m.
 \end{aligned}
 }
@@ -159,10 +158,10 @@ where the boundary contribution is
 \begin{equation}
 \begin{aligned}
 B_m={}&-\int_{\partial\Omega}p\,
-\boldsymbol{\phi}\cdot\mathbf{n}\,d\Gamma\\
+\vec{W}\cdot\mathbf{n}\,d\Gamma\\
 &+\mu\int_{\partial\Omega}
-\boldsymbol{\phi}\cdot
-\frac{\partial\mathbf{U}}{\partial n}\,d\Gamma.
+\vec{W}\cdot
+\frac{\partial\vec{U}}{\partial n}\,d\Gamma.
 \end{aligned}
 \end{equation}
 
@@ -179,28 +178,25 @@ This is the weak form of the momentum equations.
 The energy equation is
 
 \begin{equation}
-\frac{\partial T}{\partial t}
-+\mathbf{U}\cdot\nabla T
+\vec{U}\cdot\nabla T
 =\alpha\nabla^2T.
 \end{equation}
 
 \paragraph{Step 1: Multiply by a scalar test function}
 
-Multiply both sides by the scalar test function $s$:
+Multiply both sides by the scalar test function $\theta$:
 
 \begin{equation}
-s\frac{\partial T}{\partial t}
-+s\,\mathbf{U}\cdot\nabla T
-=\alpha s\nabla^2T.
+\theta\,\vec{U}\cdot\nabla T
+=\alpha\theta\nabla^2T.
 \end{equation}
 
 Integrating over the domain gives
 
 \begin{equation}
 \begin{aligned}
-&\int_\Omega s\frac{\partial T}{\partial t}\,d\Omega
-+\int_\Omega s\,\mathbf{U}\cdot\nabla T\,d\Omega\\
-&=\alpha\int_\Omega s\nabla^2T\,d\Omega.
+&\int_\Omega \theta\,\vec{U}\cdot\nabla T\,d\Omega\\
+&=\alpha\int_\Omega \theta\nabla^2T\,d\Omega.
 \end{aligned}
 \end{equation}
 
@@ -210,11 +206,11 @@ Applying integration by parts to the diffusion term gives
 
 \begin{equation}
 \begin{aligned}
-\alpha\int_\Omega s\nabla^2T\,d\Omega
+\alpha\int_\Omega \theta\nabla^2T\,d\Omega
 ={}&-\alpha\int_\Omega
-\nabla s\cdot\nabla T\,d\Omega\\
+\nabla\theta\cdot\nabla T\,d\Omega\\
 &+\alpha\int_{\partial\Omega}
-s\frac{\partial T}{\partial n}\,d\Gamma.
+\theta\frac{\partial T}{\partial n}\,d\Gamma.
 \end{aligned}
 \end{equation}
 
@@ -225,10 +221,9 @@ Moving the diffusion term to the left gives
 \begin{equation}
 \boxed{
 \begin{aligned}
-&\int_\Omega s\frac{\partial T}{\partial t}\,d\Omega
-+\int_\Omega s\,\mathbf{U}\cdot\nabla T\,d\Omega\\
+&\int_\Omega \theta\,\vec{U}\cdot\nabla T\,d\Omega\\
 &+\alpha\int_\Omega
-\nabla s\cdot\nabla T\,d\Omega=B_T,
+\nabla\theta\cdot\nabla T\,d\Omega=B_T,
 \end{aligned}
 }
 \end{equation}
@@ -237,11 +232,11 @@ where
 
 \begin{equation}
 B_T=\alpha\int_{\partial\Omega}
-s\frac{\partial T}{\partial n}\,d\Gamma.
+\theta\frac{\partial T}{\partial n}\,d\Gamma.
 \end{equation}
 
 For prescribed-temperature boundaries, the test function
-$s$ is zero on those boundaries. For insulated boundaries,
+$\theta$ is zero on those boundaries. For insulated boundaries,
 $\partial T/\partial n=0$. Under these conditions, the
 corresponding boundary contributions vanish.
 
@@ -254,10 +249,10 @@ continuous fields using finite element basis functions.
 For example,
 
 \begin{align}
-u_h(x,y,t)&=\sum_{j=1}^{N_u}U_j(t)\phi_j(x,y),\\
-v_h(x,y,t)&=\sum_{j=1}^{N_v}V_j(t)\psi_j(x,y),\\
-p_h(x,y,t)&=\sum_{j=1}^{N_p}P_j(t)\chi_j(x,y),\\
-T_h(x,y,t)&=\sum_{j=1}^{N_T}\Theta_j(t)\eta_j(x,y).
+u_h(x,y)&=\sum_{j=1}^{N_u}U_j\phi_j(x,y),\\
+v_h(x,y)&=\sum_{j=1}^{N_v}V_j\psi_j(x,y),\\
+p_h(x,y)&=\sum_{j=1}^{N_p}P_j\chi_j(x,y),\\
+T_h(x,y)&=\sum_{j=1}^{N_T}T_j\eta_j(x,y).
 \end{align}
 
 Here, the basis functions define the spatial approximation,
@@ -270,10 +265,10 @@ into the weak energy equation. The test functions are
 chosen from the corresponding finite element spaces.
 
 This procedure produces a finite system of algebraic
-equations for the unknown degrees of freedom. For transient
-problems, an appropriate time-discretisation method is
-also required to approximate the time derivatives and solve
-for the fields at successive time steps.
+equations for the unknown degrees of freedom. Because the model is steady-state, no time-discretisation
+is required. The resulting spatially discretised coupled
+system is solved directly for the steady velocity, pressure,
+and temperature fields.
 
 
 \end{document}
