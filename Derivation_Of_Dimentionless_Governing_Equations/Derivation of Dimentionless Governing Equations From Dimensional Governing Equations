@@ -1,0 +1,1175 @@
+\documentclass[preprint,3p,number]{elsarticle}
+
+\usepackage{amsmath,amssymb}
+
+\title{Derivation of the Dimensionless Governing Equations From the Dimensional Governing Equations}
+\author{}
+
+\begin{document}
+
+\maketitle
+
+%=========================================================
+\section{Dimensional Governing Equations}
+%=========================================================
+
+For a steady, two-dimensional, incompressible fluid, the
+dimensional continuity equation is
+
+\begin{equation}
+\frac{\partial u}{\partial x}
++
+\frac{\partial v}{\partial y}
+=0.
+\label{eq:continuity_dim}
+\end{equation}
+
+The horizontal momentum equation is
+
+\begin{equation}
+\rho_b
+\left(
+u\frac{\partial u}{\partial x}
++
+v\frac{\partial u}{\partial y}
+\right)
+=
+-\frac{\partial p}{\partial x}
++
+\mu_b
+\left(
+\frac{\partial^2u}{\partial x^2}
++
+\frac{\partial^2u}{\partial y^2}
+\right).
+\label{eq:horizontal_dim}
+\end{equation}
+
+The vertical momentum equation, including the buoyancy term, is
+
+\begin{equation}
+\begin{aligned}
+\rho_b
+\left(
+u\frac{\partial v}{\partial x}
++
+v\frac{\partial v}{\partial y}
+\right)
+={}&-\frac{\partial p}{\partial y}\\
+&+\mu_b
+\left(
+\frac{\partial^2v}{\partial x^2}
++
+\frac{\partial^2v}{\partial y^2}
+\right)\\
+&+\rho_b g\beta_b(T-T_c).
+\end{aligned}
+\label{eq:vertical_dim}
+\end{equation}
+
+The dimensional energy equation is
+
+\begin{equation}
+\begin{aligned}
+(\rho C_p)_b
+\left(
+u\frac{\partial T}{\partial x}
++
+v\frac{\partial T}{\partial y}
+\right)
+=
+k_b
+\left(
+\frac{\partial^2T}{\partial x^2}
++
+\frac{\partial^2T}{\partial y^2}
+\right).
+\end{aligned}
+\label{eq:energy_dim}
+\end{equation}
+
+%=========================================================
+\section{Dimensionless Variables and Parameters}
+%=========================================================
+
+The dimensionless coordinates, velocity components, pressure,
+and temperature are defined as
+
+\begin{equation}
+X=\frac{x}{H},
+\qquad
+Y=\frac{y}{H},
+\qquad
+U=\frac{uH}{\alpha_f},
+\qquad
+V=\frac{vH}{\alpha_f}.
+\label{eq:dimensionless_coordinates}
+\end{equation}
+
+\begin{equation}
+P=\frac{pH^2}{\rho_f\alpha_f^2},
+\qquad
+\theta=\frac{T-T_c}{T_h-T_c}.
+\label{eq:dimensionless_pressure_temperature}
+\end{equation}
+
+Rearranging these definitions gives
+
+\begin{equation}
+x=HX,
+\qquad
+y=HY,
+\qquad
+u=\frac{\alpha_f}{H}U,
+\qquad
+v=\frac{\alpha_f}{H}V.
+\label{eq:inverse_coordinates_velocity}
+\end{equation}
+
+Similarly,
+
+\begin{equation}
+p=\frac{\rho_f\alpha_f^2}{H^2}P,
+\qquad
+T=T_c+(T_h-T_c)\theta.
+\label{eq:inverse_pressure_temperature}
+\end{equation}
+
+The thermal diffusivity of the base fluid is
+
+\begin{equation}
+\alpha_f=\frac{k_f}{(\rho C_p)_f}.
+\label{eq:thermal_diffusivity}
+\end{equation}
+
+The Prandtl number and Rayleigh number are defined as
+
+\begin{equation}
+Pr=\frac{\mu_f}{\rho_f\alpha_f},
+\qquad
+Ra=\frac{g\rho_f\beta_f(T_h-T_c)H^3}
+{\alpha_f\mu_f}.
+\label{eq:dimensionless_numbers}
+\end{equation}
+
+Multiplying these two dimensionless numbers gives
+
+\begin{equation}
+RaPr
+=
+\frac{g\beta_f(T_h-T_c)H^3}{\alpha_f^2}.
+\label{eq:RaPr}
+\end{equation}
+
+%=========================================================
+\section{Derivation of the Dimensionless Continuity Equation}
+%=========================================================
+
+The dimensional continuity equation is
+
+\begin{equation}
+\frac{\partial u}{\partial x}
++
+\frac{\partial v}{\partial y}
+=0.
+\label{eq:continuity_start}
+\end{equation}
+
+From the dimensionless definitions,
+
+\begin{equation}
+u=\frac{\alpha_f}{H}U,
+\qquad
+v=\frac{\alpha_f}{H}V,
+\qquad
+X=\frac{x}{H},
+\qquad
+Y=\frac{y}{H}.
+\label{eq:continuity_substitution}
+\end{equation}
+
+The derivative of \(u\) with respect to \(x\) is
+
+\begin{equation}
+\frac{\partial u}{\partial x}
+=
+\frac{\partial}{\partial x}
+\left(\frac{\alpha_f}{H}U\right).
+\end{equation}
+
+Since \(\alpha_f\) and \(H\) are constants,
+
+\begin{equation}
+\frac{\partial u}{\partial x}
+=
+\frac{\alpha_f}{H}
+\frac{\partial U}{\partial x}.
+\end{equation}
+
+Applying the chain rule to \(U(X,Y)\) gives
+
+\begin{equation}
+\frac{\partial U}{\partial x}
+=
+\frac{\partial U}{\partial X}
+\frac{\partial X}{\partial x}
++
+\frac{\partial U}{\partial Y}
+\frac{\partial Y}{\partial x}.
+\end{equation}
+
+From \(X=x/H\) and \(Y=y/H\),
+
+\begin{equation}
+\frac{\partial X}{\partial x}=\frac{1}{H},
+\qquad
+\frac{\partial Y}{\partial x}=0.
+\end{equation}
+
+Therefore,
+
+\begin{equation}
+\frac{\partial U}{\partial x}
+=
+\frac{1}{H}\frac{\partial U}{\partial X}.
+\end{equation}
+
+Substituting this result gives
+
+\begin{equation}
+\frac{\partial u}{\partial x}
+=
+\frac{\alpha_f}{H^2}
+\frac{\partial U}{\partial X}.
+\label{eq:du_dx}
+\end{equation}
+
+Similarly, the derivative of \(v\) with respect to \(y\) is
+
+\begin{equation}
+\frac{\partial v}{\partial y}
+=
+\frac{\partial}{\partial y}
+\left(\frac{\alpha_f}{H}V\right)
+=
+\frac{\alpha_f}{H}
+\frac{\partial V}{\partial y}.
+\end{equation}
+
+Applying the chain rule gives
+
+\begin{equation}
+\frac{\partial V}{\partial y}
+=
+\frac{\partial V}{\partial X}
+\frac{\partial X}{\partial y}
++
+\frac{\partial V}{\partial Y}
+\frac{\partial Y}{\partial y}.
+\end{equation}
+
+Since
+
+\begin{equation}
+\frac{\partial X}{\partial y}=0,
+\qquad
+\frac{\partial Y}{\partial y}=\frac{1}{H},
+\end{equation}
+
+it follows that
+
+\begin{equation}
+\frac{\partial v}{\partial y}
+=
+\frac{\alpha_f}{H^2}
+\frac{\partial V}{\partial Y}.
+\label{eq:dv_dy}
+\end{equation}
+
+Substituting Eqs.~\eqref{eq:du_dx} and \eqref{eq:dv_dy}
+into Eq.~\eqref{eq:continuity_start} gives
+
+\begin{equation}
+\frac{\alpha_f}{H^2}
+\frac{\partial U}{\partial X}
++
+\frac{\alpha_f}{H^2}
+\frac{\partial V}{\partial Y}
+=0.
+\end{equation}
+
+Factoring out the common coefficient yields
+
+\begin{equation}
+\frac{\alpha_f}{H^2}
+\left(
+\frac{\partial U}{\partial X}
++
+\frac{\partial V}{\partial Y}
+\right)
+=0.
+\end{equation}
+
+Dividing both sides by \(\alpha_f/H^2\), which is non-zero,
+gives the dimensionless continuity equation:
+
+\begin{equation}
+\boxed{
+\frac{\partial U}{\partial X}
++
+\frac{\partial V}{\partial Y}
+=0
+}
+\label{eq:continuity_dimensionless}
+\end{equation}
+
+%=========================================================
+\section{Derivation of the Dimensionless Horizontal Momentum Equation}
+%=========================================================
+
+The dimensional horizontal momentum equation is
+
+\begin{equation}
+\begin{aligned}
+\rho_b
+\left(
+u\frac{\partial u}{\partial x}
++
+v\frac{\partial u}{\partial y}
+\right)
+={}&-\frac{\partial p}{\partial x}\\
+&+\mu_b
+\left(
+\frac{\partial^2u}{\partial x^2}
++
+\frac{\partial^2u}{\partial y^2}
+\right).
+\end{aligned}
+\label{eq:horizontal_start}
+\end{equation}
+
+Using the dimensionless variables,
+
+\begin{equation}
+u=\frac{\alpha_f}{H}U,
+\qquad
+v=\frac{\alpha_f}{H}V,
+\qquad
+p=\frac{\rho_f\alpha_f^2}{H^2}P.
+\label{eq:horizontal_variables}
+\end{equation}
+
+The first-order derivatives of \(u\) are
+
+\begin{equation}
+\frac{\partial u}{\partial x}
+=
+\frac{\alpha_f}{H^2}
+\frac{\partial U}{\partial X},
+\qquad
+\frac{\partial u}{\partial y}
+=
+\frac{\alpha_f}{H^2}
+\frac{\partial U}{\partial Y}.
+\label{eq:horizontal_first_derivatives}
+\end{equation}
+
+The second-order derivative of the horizontal velocity with respect to \(x\) is
+
+\[
+\frac{\partial^2 u}{\partial x^2}
+=
+\frac{\partial}{\partial x}
+\left(\frac{\partial u}{\partial x}\right).
+\]
+
+Using the previously derived expression
+
+\[
+\frac{\partial u}{\partial x}
+=
+\frac{\alpha_f}{H^2}
+\frac{\partial U}{\partial X},
+\]
+
+we obtain
+
+\[
+\frac{\partial^2 u}{\partial x^2}
+=
+\frac{\partial}{\partial x}
+\left(
+\frac{\alpha_f}{H^2}
+\frac{\partial U}{\partial X}
+\right).
+\]
+
+Since \(\alpha_f\) and \(H\) are constants, they can be taken outside the derivative:
+
+\[
+\frac{\partial^2 u}{\partial x^2}
+=
+\frac{\alpha_f}{H^2}
+\frac{\partial}{\partial x}
+\left(\frac{\partial U}{\partial X}\right).
+\]
+
+Applying the chain rule, with \(U=U(X,Y)\) and \(X=x/H\), gives
+
+\[
+\frac{\partial}{\partial x}
+\left(\frac{\partial U}{\partial X}\right)
+=
+\frac{\partial}{\partial X}
+\left(\frac{\partial U}{\partial X}\right)
+\frac{\partial X}{\partial x}
++
+\frac{\partial}{\partial Y}
+\left(\frac{\partial U}{\partial X}\right)
+\frac{\partial Y}{\partial x}.
+\]
+
+Since
+
+\[
+\frac{\partial X}{\partial x}=\frac{1}{H},
+\qquad
+\frac{\partial Y}{\partial x}=0,
+\]
+
+the expression becomes
+
+\[
+\frac{\partial}{\partial x}
+\left(\frac{\partial U}{\partial X}\right)
+=
+\frac{\partial}{\partial X}
+\left(\frac{\partial U}{\partial X}\right)
+\frac{1}{H}.
+\]
+
+Therefore,
+
+\[
+\frac{\partial}{\partial x}
+\left(\frac{\partial U}{\partial X}\right)
+=
+\frac{1}{H}
+\frac{\partial^2 U}{\partial X^2}.
+\]
+
+Substituting this result into the second-order derivative gives
+
+\[
+\frac{\partial^2 u}{\partial x^2}
+=
+\frac{\alpha_f}{H^2}
+\left(
+\frac{1}{H}
+\frac{\partial^2 U}{\partial X^2}
+\right).
+\]
+
+Hence,
+
+\begin{equation}
+\frac{\partial^2 u}{\partial x^2}
+=
+\frac{\alpha_f}{H^3}
+\frac{\partial^2 U}{\partial X^2}
+\label{eq:31}
+\end{equation}
+
+Likewise, for the second-order derivative with respect to \(y\),
+
+\begin{equation}
+\frac{\partial^2u}{\partial y^2}
+=
+\frac{\partial}{\partial y}
+\left(
+\frac{\alpha_f}{H^2}
+\frac{\partial U}{\partial Y}
+\right).
+\end{equation}
+
+Applying the chain rule and using
+\(\partial X/\partial y=0\) and
+\(\partial Y/\partial y=1/H\) gives
+
+\begin{equation}
+\frac{\partial^2u}{\partial y^2}
+=
+\frac{\alpha_f}{H^3}
+\frac{\partial^2U}{\partial Y^2}.
+\label{eq:d2u_dy2}
+\end{equation}
+
+The pressure derivative with respect to \(x\) is
+
+\begin{equation}
+\frac{\partial p}{\partial x}
+=
+\frac{\partial}{\partial x}
+\left(
+\frac{\rho_f\alpha_f^2}{H^2}P
+\right).
+\end{equation}
+
+Since \(\rho_f\), \(\alpha_f\), and \(H\) are constants, taking the
+constant coefficient outside the derivative gives
+
+\begin{equation}
+\frac{\partial p}{\partial x}
+=
+\frac{\rho_f\alpha_f^2}{H^2}
+\frac{\partial P}{\partial x}.
+\end{equation}
+
+Applying the chain rule to \(P=P(X,Y)\),
+
+\begin{equation}
+\frac{\partial P}{\partial x}
+=
+\frac{\partial P}{\partial X}
+\frac{\partial X}{\partial x}
++
+\frac{\partial P}{\partial Y}
+\frac{\partial Y}{\partial x}.
+\end{equation}
+
+Using the dimensionless coordinate definitions
+\(X=x/H\) and \(Y=y/H\), we obtain
+
+\begin{equation}
+\frac{\partial X}{\partial x}=\frac{1}{H},
+\qquad
+\frac{\partial Y}{\partial x}=0.
+\end{equation}
+
+Substituting these derivatives into the chain-rule expression gives
+
+\begin{equation}
+\frac{\partial P}{\partial x}
+=
+\frac{\partial P}{\partial X}\frac{1}{H}
++
+\frac{\partial P}{\partial Y}(0).
+\end{equation}
+
+Simplifying,
+
+\begin{equation}
+\frac{\partial P}{\partial x}
+=
+\frac{1}{H}\frac{\partial P}{\partial X}.
+\end{equation}
+
+Substituting this result into the pressure derivative,
+
+\begin{equation}
+\frac{\partial p}{\partial x}
+=
+\frac{\rho_f\alpha_f^2}{H^2}
+\left(
+\frac{1}{H}\frac{\partial P}{\partial X}
+\right).
+\end{equation}
+
+Combining the constant coefficients gives
+
+\begin{equation}
+\frac{\partial p}{\partial x}
+=
+\frac{\rho_f\alpha_f^2}{H^3}
+\frac{\partial P}{\partial X}
+\label{eq:dp_dx}
+\end{equation}
+
+Substituting Eqs.~\eqref{eq:horizontal_first_derivatives},
+\eqref{eq:31}, \eqref{eq:d2u_dy2}, and \eqref{eq:dp_dx}
+into Eq.~\eqref{eq:horizontal_start} gives
+
+\begin{align}
+&\rho_b\frac{\alpha_f^2}{H^3}
+\left(
+U\frac{\partial U}{\partial X}
++
+V\frac{\partial U}{\partial Y}
+\right)
+\nonumber\\
+&\quad =
+-\frac{\rho_f\alpha_f^2}{H^3}
+\frac{\partial P}{\partial X}
+\nonumber\\
+&\qquad+
+\frac{\mu_b\alpha_f}{H^3}
+\left(
+\frac{\partial^2U}{\partial X^2}
++
+\frac{\partial^2U}{\partial Y^2}
+\right).
+\label{eq:horizontal_substituted}
+\end{align}
+
+Dividing every term by the reference scale
+\(\displaystyle \frac{\rho_f\alpha_f^2}{H^3}\) gives
+
+\begin{align}
+\frac{\rho_b}{\rho_f}
+\left(
+U\frac{\partial U}{\partial X}
++
+V\frac{\partial U}{\partial Y}
+\right)
+={}&-\frac{\partial P}{\partial X}
+\nonumber\\
+&+\frac{\mu_b}{\rho_f\alpha_f}
+\left(
+\frac{\partial^2U}{\partial X^2}
++
+\frac{\partial^2U}{\partial Y^2}
+\right).
+\label{eq:horizontal_scaled}
+\end{align}
+
+The reference scale
+\(\displaystyle \frac{\rho_f\alpha_f^2}{H^3}\)
+is chosen because it represents the common coefficient of
+the inertial and pressure terms after substituting the
+dimensionless variables into the horizontal momentum equation.
+
+\par\vspace{\baselineskip}
+Specifically, the inertial term is
+
+\begin{equation}
+\begin{aligned}
+\rho_b\frac{\alpha_f^2}{H^3}
+\left(
+U\frac{\partial U}{\partial X}
++
+V\frac{\partial U}{\partial Y}
+\right).
+\end{aligned}
+\end{equation}
+
+The pressure term is
+
+\begin{equation}
+-\frac{\rho_f\alpha_f^2}{H^3}
+\frac{\partial P}{\partial X}.
+\end{equation}
+
+Both terms contain the factor
+\(\displaystyle \frac{\alpha_f^2}{H^3}\),
+and the pressure term also contains \(\rho_f\).
+Therefore, dividing every term by the reference scale
+\(\displaystyle \frac{\rho_f\alpha_f^2}{H^3}\)
+makes the pressure coefficient equal to \(-1\) and converts
+the inertial coefficient into \(\displaystyle \frac{\rho_b}{\rho_f}\).
+
+\par\vspace{\baselineskip}
+From the definition of \(Pr\),
+
+\begin{equation}
+\frac{\mu_b}{\rho_f\alpha_f}
+=
+Pr\frac{\mu_b}{\mu_f}.
+\label{eq:horizontal_viscosity}
+\end{equation}
+
+Therefore, the dimensionless horizontal momentum equation is
+
+\begin{equation}
+\boxed{
+\begin{aligned}
+\frac{\rho_b}{\rho_f}
+\left(
+U\frac{\partial U}{\partial X}
++
+V\frac{\partial U}{\partial Y}
+\right)
+={}&-\frac{\partial P}{\partial X}\\
+&+Pr\frac{\mu_b}{\mu_f}
+\left(
+\frac{\partial^2U}{\partial X^2}
++
+\frac{\partial^2U}{\partial Y^2}
+\right).
+\end{aligned}
+}
+\label{eq:horizontal_dimensionless}
+\end{equation}
+
+%=========================================================
+\section{Derivation of the Dimensionless Vertical Momentum Equation}
+%=========================================================
+
+The dimensional vertical momentum equation is
+
+\begin{equation}
+\begin{aligned}
+\rho_b
+\left(
+u\frac{\partial v}{\partial x}
++
+v\frac{\partial v}{\partial y}
+\right)
+={}&-\frac{\partial p}{\partial y}\\
+&+\mu_b
+\left(
+\frac{\partial^2v}{\partial x^2}
++
+\frac{\partial^2v}{\partial y^2}
+\right)\\
+&+\rho_b g\beta_b(T-T_c).
+\end{aligned}
+\label{eq:vertical_start}
+\end{equation}
+
+Using the dimensionless variables,
+
+\begin{equation}
+u=\frac{\alpha_f}{H}U,
+\qquad
+v=\frac{\alpha_f}{H}V,
+\qquad
+p=\frac{\rho_f\alpha_f^2}{H^2}P,
+\qquad
+T=T_c+(T_h-T_c)\theta.
+\label{eq:horizontal_variables}
+\end{equation}
+
+The first-order derivatives of \(v\) are
+
+\begin{equation}
+\frac{\partial v}{\partial x}
+=
+\frac{\alpha_f}{H^2}
+\frac{\partial V}{\partial X},
+\qquad
+\frac{\partial v}{\partial y}
+=
+\frac{\alpha_f}{H^2}
+\frac{\partial V}{\partial Y}.
+\label{eq:vertical_first_derivatives}
+\end{equation}
+
+Applying the chain rule to the first second-order derivative gives
+
+\begin{equation}
+\frac{\partial^2v}{\partial x^2}
+=
+\frac{\partial}{\partial x}
+\left(
+\frac{\alpha_f}{H^2}
+\frac{\partial V}{\partial X}
+\right).
+\end{equation}
+
+Since the coefficient is constant,
+
+\begin{equation}
+\frac{\partial^2v}{\partial x^2}
+=
+\frac{\alpha_f}{H^2}
+\frac{\partial}{\partial x}
+\left(\frac{\partial V}{\partial X}\right).
+\end{equation}
+
+Using the chain rule and the coordinate definitions as above gives
+
+\begin{equation}
+\frac{\partial^2v}{\partial x^2}
+=
+\frac{\alpha_f}{H^3}
+\frac{\partial^2V}{\partial X^2}.
+\label{eq:d2v_dx2}
+\end{equation}
+
+Similarly,
+
+\begin{equation}
+\frac{\partial^2v}{\partial y^2}
+=
+\frac{\partial}{\partial y}
+\left(
+\frac{\alpha_f}{H^2}
+\frac{\partial V}{\partial Y}
+\right)
+=
+\frac{\alpha_f}{H^3}
+\frac{\partial^2V}{\partial Y^2}.
+\label{eq:d2v_dy2}
+\end{equation}
+
+The pressure derivative with respect to \(y\) is
+
+\begin{equation}
+\frac{\partial p}{\partial y}
+=
+\frac{\partial}{\partial y}
+\left(
+\frac{\rho_f\alpha_f^2}{H^2}P
+\right).
+\end{equation}
+
+Using the chain rule as above gives
+
+\begin{equation}
+\frac{\partial p}{\partial y}
+=
+\frac{\rho_f\alpha_f^2}{H^3}
+\frac{\partial P}{\partial Y}.
+\label{eq:dp_dy}
+\end{equation}
+
+The dimensionless temperature relation is
+
+\begin{equation}
+T-T_c=(T_h-T_c)\theta.
+\label{eq:temperature_difference}
+\end{equation}
+
+Substituting Eqs.~\eqref{eq:vertical_first_derivatives},
+\eqref{eq:d2v_dx2}, \eqref{eq:d2v_dy2},
+\eqref{eq:dp_dy}, and \eqref{eq:temperature_difference}
+into Eq.~\eqref{eq:vertical_start} gives
+
+\begin{align}
+&\rho_b\frac{\alpha_f^2}{H^3}
+\left(
+U\frac{\partial V}{\partial X}
++
+V\frac{\partial V}{\partial Y}
+\right)
+\nonumber\\
+&\quad =
+-\frac{\rho_f\alpha_f^2}{H^3}
+\frac{\partial P}{\partial Y}
+\nonumber\\
+&\qquad+
+\frac{\mu_b\alpha_f}{H^3}
+\left(
+\frac{\partial^2V}{\partial X^2}
++
+\frac{\partial^2V}{\partial Y^2}
+\right)
+\nonumber\\
+&\qquad+
+\rho_b g\beta_b(T_h-T_c)\theta.
+\label{eq:vertical_substituted}
+\end{align}
+
+Dividing every term by the reference scale \(\displaystyle \frac{\rho_f\alpha_f^2}{H^3}\) gives
+
+\begin{align}
+&\frac{\rho_b}{\rho_f}
+\left(
+U\frac{\partial V}{\partial X}
++
+V\frac{\partial V}{\partial Y}
+\right)
+\nonumber\\
+&\quad =
+-\frac{\partial P}{\partial Y}
++
+\frac{\mu_b}{\rho_f\alpha_f}
+\left(
+\frac{\partial^2V}{\partial X^2}
++
+\frac{\partial^2V}{\partial Y^2}
+\right)
+\nonumber\\
+&\qquad+
+\frac{\rho_b}{\rho_f}
+\frac{g\beta_b(T_h-T_c)H^3}{\alpha_f^2}\theta.
+\label{eq:vertical_scaled}
+\end{align}
+
+Using the definitions of \(Pr\) and \(RaPr\),
+
+\begin{equation}
+\frac{\mu_b}{\rho_f\alpha_f}
+=
+Pr\frac{\mu_b}{\mu_f},
+\end{equation}
+
+and
+
+\begin{equation}
+\frac{g\beta_b(T_h-T_c)H^3}{\alpha_f^2}
+=
+RaPr\frac{\beta_b}{\beta_f}.
+\end{equation}
+
+Therefore, the dimensionless vertical momentum equation is
+
+\begin{equation}
+\boxed{
+\begin{aligned}
+\frac{\rho_b}{\rho_f}
+\left(
+U\frac{\partial V}{\partial X}
++
+V\frac{\partial V}{\partial Y}
+\right)
+={}&-\frac{\partial P}{\partial Y}\\
+&+Pr\frac{\mu_b}{\mu_f}
+\left(
+\frac{\partial^2V}{\partial X^2}
++
+\frac{\partial^2V}{\partial Y^2}
+\right)\\
+&+\frac{\rho_b}{\rho_f}
+RaPr\frac{\beta_b}{\beta_f}\theta.
+\end{aligned}
+}
+\label{eq:vertical_dimensionless}
+\end{equation}
+
+%=========================================================
+\section{Derivation of the Dimensionless Energy Equation}
+%=========================================================
+
+The dimensional energy equation is
+
+\begin{equation}
+\begin{aligned}
+(\rho C_p)_b
+\left(
+u\frac{\partial T}{\partial x}
++
+v\frac{\partial T}{\partial y}
+\right)
+=
+k_b
+\left(
+\frac{\partial^2T}{\partial x^2}
++
+\frac{\partial^2T}{\partial y^2}
+\right).
+\end{aligned}
+\label{eq:energy_start}
+\end{equation}
+
+The dimensionless temperature relation is
+
+\begin{equation}
+T=T_c+(T_h-T_c)\theta.
+\end{equation}
+
+Differentiating both sides with respect to \(x\) gives
+
+\begin{equation}
+\frac{\partial T}{\partial x}
+=
+\frac{\partial}{\partial x}
+\left[T_c+(T_h-T_c)\theta\right].
+\end{equation}
+
+Applying the sum rule,
+
+\begin{equation}
+\frac{\partial T}{\partial x}
+=
+\frac{\partial T_c}{\partial x}
++
+\frac{\partial}{\partial x}
+\left[(T_h-T_c)\theta\right].
+\end{equation}
+
+Since \(T_c\), \(T_h\), and \(T_h-T_c\) are constants,
+their derivatives with respect to \(x\) are zero. Therefore,
+
+\begin{equation}
+\frac{\partial T_c}{\partial x}=0,
+\qquad
+\frac{\partial (T_h-T_c)}{\partial x}=0.
+\end{equation}
+
+Using the constant multiple rule,
+
+\begin{equation}
+\frac{\partial}{\partial x}
+\left[(T_h-T_c)\theta\right]
+=
+(T_h-T_c)\frac{\partial\theta}{\partial x}.
+\end{equation}
+
+Substituting these results gives
+
+\begin{equation}
+\frac{\partial T}{\partial x}
+=
+0+(T_h-T_c)\frac{\partial\theta}{\partial x}.
+\end{equation}
+
+Hence,
+
+\begin{equation}
+\frac{\partial T}{\partial x}
+=
+(T_h-T_c)\frac{\partial\theta}{\partial x}
+\end{equation}
+
+Applying the chain rule,
+
+\begin{equation}
+\frac{\partial\theta}{\partial x}
+=
+\frac{\partial\theta}{\partial X}
+\frac{\partial X}{\partial x}
++
+\frac{\partial\theta}{\partial Y}
+\frac{\partial Y}{\partial x}.
+\end{equation}
+
+Since \(\partial X/\partial x=1/H\) and
+\(\partial Y/\partial x=0\),
+
+\begin{equation}
+\frac{\partial T}{\partial x}
+=
+\frac{T_h-T_c}{H}
+\frac{\partial\theta}{\partial X}.
+\label{eq:dT_dx}
+\end{equation}
+
+Similarly, differentiation with respect to \(y\) gives
+
+\begin{equation}
+\frac{\partial T}{\partial y}
+=
+\frac{T_h-T_c}{H}
+\frac{\partial\theta}{\partial Y}.
+\label{eq:dT_dy}
+\end{equation}
+
+Differentiating Eq.~\eqref{eq:dT_dx} again with respect to \(x\),
+
+\begin{equation}
+\frac{\partial^2T}{\partial x^2}
+=
+\frac{T_h-T_c}{H}
+\frac{\partial}{\partial x}
+\left(\frac{\partial\theta}{\partial X}\right).
+\end{equation}
+
+Applying the chain rule gives
+
+\begin{equation}
+\frac{\partial^2T}{\partial x^2}
+=
+\frac{T_h-T_c}{H^2}
+\frac{\partial^2\theta}{\partial X^2}.
+\label{eq:d2T_dx2}
+\end{equation}
+
+Similarly,
+
+\begin{equation}
+\frac{\partial^2T}{\partial y^2}
+=
+\frac{T_h-T_c}{H^2}
+\frac{\partial^2\theta}{\partial Y^2}.
+\label{eq:d2T_dy2}
+\end{equation}
+
+Substituting Eqs.~\eqref{eq:dT_dx}, \eqref{eq:dT_dy},
+\eqref{eq:d2T_dx2}, and \eqref{eq:d2T_dy2} into
+Eq.~\eqref{eq:energy_start}, together with
+\(u=\alpha_f U/H\) and \(v=\alpha_f V/H\), gives
+
+\begin{align}
+&(\rho C_p)_b
+\frac{\alpha_f(T_h-T_c)}{H^2}
+\left(
+U\frac{\partial\theta}{\partial X}
++
+V\frac{\partial\theta}{\partial Y}
+\right)
+\nonumber\\
+&\quad =
+\frac{k_b(T_h-T_c)}{H^2}
+\left(
+\frac{\partial^2\theta}{\partial X^2}
++
+\frac{\partial^2\theta}{\partial Y^2}
+\right).
+\label{eq:energy_substituted}
+\end{align}
+
+Dividing both sides by the reference scale \(\displaystyle \frac{(\rho C_p)_f\alpha_f(T_h-T_c)}{H^2}\) gives
+
+\begin{align}
+&\frac{(\rho C_p)_b}{(\rho C_p)_f}
+\left(
+U\frac{\partial\theta}{\partial X}
++
+V\frac{\partial\theta}{\partial Y}
+\right)
+\nonumber\\
+&\quad =
+\frac{k_b}{(\rho C_p)_f\alpha_f}
+\left(
+\frac{\partial^2\theta}{\partial X^2}
++
+\frac{\partial^2\theta}{\partial Y^2}
+\right).
+\label{eq:energy_scaled}
+\end{align}
+
+The reference scale
+\[
+\frac{(\rho C_p)_f\alpha_f(T_h-T_c)}{H^2}
+\]
+is chosen based on the characteristic scale of the energy convection term using the base fluid properties. Dividing both sides of the energy equation by this reference scale eliminates the common dimensional factors and converts the remaining coefficients into dimensionless ratios. This gives the dimensionless energy equation in terms of the suspension properties relative to the base fluid properties.
+
+\par\vspace{\baselineskip}
+Since
+
+\begin{equation}
+\alpha_f=\frac{k_f}{(\rho C_p)_f},
+\end{equation}
+
+we obtain
+
+\begin{equation}
+(\rho C_p)_f\alpha_f=k_f.
+\end{equation}
+
+Consequently,
+
+\begin{equation}
+\frac{k_b}{(\rho C_p)_f\alpha_f}
+=
+\frac{k_b}{k_f}.
+\end{equation}
+
+\par\vspace{\baselineskip}
+The dimensionless energy equation is therefore
+
+\begin{equation}
+\boxed{
+\begin{aligned}
+\frac{(\rho C_p)_b}{(\rho C_p)_f}
+\left(
+U\frac{\partial\theta}{\partial X}
++
+V\frac{\partial\theta}{\partial Y}
+\right)
+={}&
+\frac{k_b}{k_f}
+\\
+&\times
+\left(
+\frac{\partial^2\theta}{\partial X^2}
++
+\frac{\partial^2\theta}{\partial Y^2}
+\right).
+\end{aligned}
+}
+\label{eq:energy_dimensionless}
+\end{equation}
+
+\end{document}
