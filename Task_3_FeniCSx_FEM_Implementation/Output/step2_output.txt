@@ -1,0 +1,5 @@
+Boundary identification completed.
+Left wall facets: 20
+Right wall facets: 20
+Bottom wall facets: 20
+Top wall facets: 20
