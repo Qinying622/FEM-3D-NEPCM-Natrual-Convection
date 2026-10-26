@@ -1,0 +1,4 @@
+Mesh and function spaces created successfully.
+Number of cells: 800
+Velocity-pressure space dimension: 3803
+Temperature space dimension: 1681
