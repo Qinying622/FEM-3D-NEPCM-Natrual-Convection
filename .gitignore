@@ -1,7 +1,15 @@
 # LaTeX files
+*.acn
+*.apx
 *.aux
 *.bbl
+*.blg
+*.glo
+*.ist
+*.lof
 *.log
+*.lot
 *.pdf
 *.spl
 *.synctex.gz
+*.toc
