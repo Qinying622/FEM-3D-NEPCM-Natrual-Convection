@@ -216,6 +216,7 @@
 
 \AddToHook{begindocument/before}{%
   \RequirePackage[breaklinks,pdfborder={0 0 0},bookmarksdepth=3,hypertexnames=false,pdfpagelabels=false]{hyperref}
+  \RequirePackage[noabbrev]{cleveref}
   \RequirePackage[depth=3]{bookmark}
 }
 
@@ -257,21 +258,21 @@
   \ignorespaces
   \changepage{-60mm+1.25ex}{-20mm}{20mm}{0pt}{0pt}{30mm}{0pt}{0pt}{0pt}
   \hypersetup{pageanchor=false}
-  \begin{titlingpage}%
-    \setSingleSpace{1.15}\SingleSpacing%
-    \centering%
-    % \renewcommand\ttdefault{lmtt}%
-    \fontfamily{qhvc}\fontseries{b}\fontsize{16\p@}{18\p@}\selectfont%
-    \MakeTextUppercase{\thetitle}\par%
-    \vfill%
-    \MakeTextUppercase{\theauthor}\par%
-    \vfill%
-    \MakeTextUppercase{\@mtfaculty}\\%
-    \MakeTextUppercase{\@mtunien}\\%
-    KUALA LUMPUR\par%
-    \bigskip%
-    \@mtsubmissionyear\par%
-  \end{titlingpage}%
+  % \begin{titlingpage}%
+  %   \setSingleSpace{1.15}\SingleSpacing%
+  %   \centering%
+  %   % \renewcommand\ttdefault{lmtt}%
+  %   \fontfamily{qhvc}\fontseries{b}\fontsize{16\p@}{18\p@}\selectfont%
+  %   \MakeTextUppercase{\thetitle}\par%
+  %   \vfill%
+  %   \MakeTextUppercase{\theauthor}\par%
+  %   \vfill%
+  %   \MakeTextUppercase{\@mtfaculty}\\%
+  %   \MakeTextUppercase{\@mtunien}\\%
+  %   KUALA LUMPUR\par%
+  %   \bigskip%
+  %   \@mtsubmissionyear\par%
+  % \end{titlingpage}%
   \hypersetup{pageanchor=true}
   { \setSingleSpace{1.15}\SingleSpacing%
     \centering\thispagestyle{empty}\setcounter{page}{1}%
@@ -319,7 +320,9 @@
 }
 
 \newcommand\statement@doctoralresearch{%
-  THESIS SUBMITTED IN FULFILMENT OF THE REQUIREMENTS FOR THE DEGREE OF \MakeTextUppercase{\@mtdegree}%
+  % THESIS SUBMITTED IN FULFILMENT OF THE REQUIREMENTS FOR THE DEGREE OF \MakeTextUppercase{\@mtdegree}%
+  % \vfill\faculty@block%
+  A graduation exercise submitted to the Faculty of Engineering, University of Malaya in partial fulfilment of the requirement for the Degree of Bachelor's in Mechanical Engineering%
   \vfill\faculty@block%
 }
 
@@ -353,47 +356,66 @@
 }
 
 \newcommand{\english@declaration@page}{%
-  \chapter*{\@mtunien\vskip1em Original Literary Work Declaration}
-  %\chapter[Original Literary Work Declaration]{{\large Universiti Malaya}\vskip1em Original Literary Work Declaration}
-  {%\large%
-    \noindent Name of Candidate: \hfill (I.C./Passport No.:\hspace{10em})\par
-    \noindent Registration/Matric No.:\par
-    \noindent Name of Degree:\par
-    \noindent Title of Project Paper/Research Report/Dissertation/Thesis (``this Work''):\vskip 3em\par
-    \noindent Field of Study:\par
+  \chapter*{\vskip1em\raggedright DECLARATION BY THE CANDIDATE}
+  {
+    \noindent I, STUDENT NAME, hereby declare 
+    that except where due acknowledgement has been made, the work presented in 
+    this thesis is my own and has not been submitted previously in whole or in 
+    part, to qualify for another academic award. \newline
 
-    {\SingleSpacing\setSingleSpace{1.15}
-    I do solemnly and sincerely declare that:
+    \noindent The content of this graduation exercise is result of the work I
+    have been carrying out since the official commencement date of the approved
+    thesis project. \newline \newline
 
-    % \setlength\pltopsep{1em}
-    \begin{enumerate}[noitemsep,label=(\arabic*)]
-    \item I am the sole author/writer of this Work;
-    \item This work is original;
-    \item Any use of any work in which copyright exists was done by way of fair dealing and for permitted purposes and any excerpt or extract from, or reference to or reproduction of any copyright work has been disclosed expressly and sufficiently and the title of the Work and its authorship have been acknowledged in this Work;
-    \item I do not have any actual knowledge nor do I ought reasonably to know that the making of this work constitutes an infringement of any copyright work;
-    \item I hereby assign all and every rights in the copyright to this Work to \@mtunien\ (``UM''), who henceforth shall be owner of the copyright in this Work and that any
-    reproduction or use in any form or by any means whatsoever is prohibited without the
-    written consent of UM having been first had and obtained;
-    \item I am fully aware that if in the course of making this Work I have infringed any copyright
-    whether intentionally or otherwise, I may be subject to legal action or any other action
-    as may be determined by UM.
-    \end{enumerate}
-    }
-
-    \vfill
-
-    Candidate's Signature \hfill Date:\hspace{6em}
-    \vskip 3em
-
-    \noindent Subscribed and solemnly declared before,\vskip 3em
-
-    Witness's Signature \hfill Date:\hspace{6em}
-
-    {\SingleSpacing\small
-    \noindent Name:\par
-    \noindent Designation:\par}
+    \noindent Date: \date{\today} \hspace{3cm} Signature: \hfill \newline
+    \noindent {\color{white}{Date: \date{\today}}} \hspace{3cm} Full Name: STUDENT NAME \hfill \newline
+    \noindent {\color{white}{Date: \date{\today}}} \hspace{3cm} NRIC No: STUDENT IC NO \hfill \newline
+    \noindent Date: \date{\today} \hspace{3cm} Supervisor's Signature and Stamp: \hfill
   }
 \clearpage}
+
+% \newcommand{\english@declaration@page}{%
+%   \chapter*{\@mtunien\vskip1em Original Literary Work Declaration}
+%   %\chapter[Original Literary Work Declaration]{{\large Universiti Malaya}\vskip1em Original Literary Work Declaration}
+%   {%\large%
+%     \noindent Name of Candidate: \hfill (I.C./Passport No.:\hspace{10em})\par
+%     \noindent Registration/Matric No.:\par
+%     \noindent Name of Degree:\par
+%     \noindent Title of Project Paper/Research Report/Dissertation/Thesis (``this Work''):\vskip 3em\par
+%     \noindent Field of Study:\par
+
+%     {\SingleSpacing\setSingleSpace{1.15}
+%     I do solemnly and sincerely declare that:
+
+%     % \setlength\pltopsep{1em}
+%     \begin{enumerate}[noitemsep,label=(\arabic*)]
+%     \item I am the sole author/writer of this Work;
+%     \item This work is original;
+%     \item Any use of any work in which copyright exists was done by way of fair dealing and for permitted purposes and any excerpt or extract from, or reference to or reproduction of any copyright work has been disclosed expressly and sufficiently and the title of the Work and its authorship have been acknowledged in this Work;
+%     \item I do not have any actual knowledge nor do I ought reasonably to know that the making of this work constitutes an infringement of any copyright work;
+%     \item I hereby assign all and every rights in the copyright to this Work to \@mtunien\ (``UM''), who henceforth shall be owner of the copyright in this Work and that any
+%     reproduction or use in any form or by any means whatsoever is prohibited without the
+%     written consent of UM having been first had and obtained;
+%     \item I am fully aware that if in the course of making this Work I have infringed any copyright
+%     whether intentionally or otherwise, I may be subject to legal action or any other action
+%     as may be determined by UM.
+%     \end{enumerate}
+%     }
+
+%     \vfill
+
+%     Candidate's Signature \hfill Date:\hspace{6em}
+%     \vskip 3em
+
+%     \noindent Subscribed and solemnly declared before,\vskip 3em
+
+%     Witness's Signature \hfill Date:\hspace{6em}
+
+%     {\SingleSpacing\small
+%     \noindent Name:\par
+%     \noindent Designation:\par}
+%   }
+% \clearpage}
 
 
 \newcommand{\malay@declaration@page}{%

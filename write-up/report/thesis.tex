@@ -42,7 +42,7 @@
 \usepackage{microtype}
 \usepackage{graphicx}
 \usepackage[dvipsnames,x11names,rgb]{xcolor}
-
+\usepackage{siunitx}
 
 % Useful for including code listings
 \usepackage{listings}
@@ -62,8 +62,8 @@
 \usepackage{supertabular}
 
 
-\author{Lim Lian Tze}
-\title{The umalayathesis \LaTeX{} Document Class}
+\author{AUTHOR NAME}
+\title{THESIS TITLE}
 
 %% If \othertitle is given, then the second abstract will display it
 %% (i.e. if your thesis is "english" then this is printed on top of the Malay abstract
@@ -72,9 +72,9 @@
 \othertitle{Tajuk dalam Bahasa Lain untuk Abstrak Kedua}
 
 \university{Universiti Malaya}
-\faculty{Institute of Postgraduate Studies}
-\submissionyear{2018}
-\degree{Doctor of Philosophy}
+\faculty{Department of Mechanical Engineering\\ Faculty of Engineering}
+\submissionyear{2027}
+\degree{Bachelor of Engineering (Mechanical)}
 
 % load acronym definitions from separate file
 % \loadglsentries{myacronyms}
@@ -84,17 +84,18 @@
 
 %% Choose only ONE from the following to get the
 %% correct statement on the title page
-\makecoverandtitlepage{\mastercoursework}
+% \makecoverandtitlepage{\mastercoursework}
 % \makecoverandtitlepage{\mastermixedmode}
 % \makecoverandtitlepage{\masterresearch}
 % \makecoverandtitlepage{\doctoralcoursework}
-% \makecoverandtitlepage{\doctoralresearch}
+\makecoverandtitlepage{\doctoralresearch}
+\declarationpage
 % \makecoverandtitlepage{\doctoralmixedmode}
 
-\declarationpage
+\acknowledgements{Thanks guys. I owe you many.}
 \abstractfromfile{abstract}
 \msabstractfromfile{msabstract}
-\acknowledgements{Thanks guys. I owe you many.}
+
 
 {\clearpage
 \tableofcontents\clearpage
@@ -114,7 +115,7 @@
 
 \mainmatter
 
-\input{chapters/introduction}
+\input{1_introduction}
 
 \bibliography{refs}
 
