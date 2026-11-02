@@ -1,0 +1,13 @@
+Mesh and function spaces created successfully.
+Number of cells: 800
+Velocity-pressure space dimension: 3803
+Temperature space dimension: 1681
+Boundary identification completed.
+Left wall facets: 20
+Right wall facets: 20
+Bottom wall facets: 20
+Top wall facets: 20
+Step 2B: Boundary conditions applied successfully!
+Velocity BCs: No-slip on all four walls
+Temperature BCs: Hot wall = 1, Cold wall = 0
+Top and bottom walls: Insulated
