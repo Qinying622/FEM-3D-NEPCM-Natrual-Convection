@@ -1,0 +1,300 @@
+\documentclass[preprint,3p,number]{elsarticle}
+
+\usepackage{amsmath,amssymb}
+
+\title{Derivation of Dimentionless Governing Equations for Two-Dimensional Natural Convection}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Derivation of Dimensionless Weak-Form Governing Equations}
+
+For a two-dimensional, steady-state, incompressible pure-water
+natural convection model, the dimensionless strong-form governing
+equations are given by
+
+\subsection{Dimensionless Strong-Form Governing Equations}
+
+\textbf{Continuity equation:}
+\begin{equation}
+\frac{\partial U}{\partial X}
++\frac{\partial V}{\partial Y}=0
+\end{equation}
+
+\textbf{Horizontal momentum equation:}
+\begin{equation}
+U\frac{\partial U}{\partial X}
++V\frac{\partial U}{\partial Y}
+=-\frac{\partial P}{\partial X}
++\mathrm{Pr}\left(
+\frac{\partial^2 U}{\partial X^2}
++\frac{\partial^2 U}{\partial Y^2}
+\right)
+\end{equation}
+
+\textbf{Vertical momentum equation:}
+\begin{equation}
+U\frac{\partial V}{\partial X}
++V\frac{\partial V}{\partial Y}
+=-\frac{\partial P}{\partial Y}
++\mathrm{Pr}\left(
+\frac{\partial^2 V}{\partial X^2}
++\frac{\partial^2 V}{\partial Y^2}
+\right)
++\mathrm{Ra}\,\mathrm{Pr}\,\theta
+\end{equation}
+
+\textbf{Energy equation:}
+\begin{equation}
+U\frac{\partial \theta}{\partial X}
++V\frac{\partial \theta}{\partial Y}
+=\frac{\partial^2\theta}{\partial X^2}
++\frac{\partial^2\theta}{\partial Y^2}
+\end{equation}
+
+Let $\Omega$ denote the computational domain and
+$\partial\Omega$ its boundary. The test functions for the
+continuity, horizontal momentum, vertical momentum and energy
+equations are denoted by $q$, $w_x$, $w_y$ and $\phi$,
+respectively.
+
+\subsection{Weak Form of the Continuity Equation}
+
+Multiplying the continuity equation by the test function $q$
+and integrating over the domain $\Omega$ gives
+
+\begin{equation}
+\int_{\Omega}
+q\left(
+\frac{\partial U}{\partial X}
++\frac{\partial V}{\partial Y}
+\right)\,d\Omega=0
+\end{equation}
+
+Therefore, the dimensionless weak form of the continuity equation is
+
+\begin{equation}
+\boxed{
+\int_{\Omega}q\,\nabla\cdot\mathbf{U}\,d\Omega=0
+}
+\end{equation}
+
+where $\mathbf{U}=(U,V)$ is the dimensionless velocity vector.
+
+\subsection{Weak Form of the Momentum Equation}
+
+The horizontal and vertical momentum equations can be combined
+into the following dimensionless vector equation:
+
+\begin{equation}
+(\mathbf{U}\cdot\nabla)\mathbf{U}
+=-\nabla P
++\mathrm{Pr}\nabla^2\mathbf{U}
++\mathrm{Ra}\,\mathrm{Pr}\,\theta\mathbf{e}_Y
+\end{equation}
+
+where $\mathbf{U}=(U,V)$ is the dimensionless velocity vector
+and $\mathbf{e}_Y=(0,1)^T$ is the unit vector in the positive
+vertical direction.
+
+Let $\mathbf{W}=(w_x,w_y)$ be the vector test function.
+Multiplying the momentum equation by $\mathbf{W}$ using the
+dot product and integrating over the domain $\Omega$ gives
+
+\begin{align}
+&\int_{\Omega}\mathbf{W}\cdot
+[(\mathbf{U}\cdot\nabla)\mathbf{U}]\,d\Omega
+\nonumber\\
+&=-\int_{\Omega}\mathbf{W}\cdot\nabla P\,d\Omega
++\mathrm{Pr}\int_{\Omega}
+\mathbf{W}\cdot\nabla^2\mathbf{U}\,d\Omega
+\nonumber\\
+&\quad+\mathrm{Ra}\,\mathrm{Pr}
+\int_{\Omega}\theta W_Y\,d\Omega
+\end{align}
+
+Applying integration by parts to the pressure term gives
+
+\begin{equation}
+-\int_{\Omega}\mathbf{W}\cdot\nabla P\,d\Omega
+=
+-\int_{\partial\Omega}
+P(\mathbf{W}\cdot\mathbf{n})\,d\Gamma
++\int_{\Omega}P(\nabla\cdot\mathbf{W})\,d\Omega
+\end{equation}
+
+Similarly, integration by parts of the viscous term gives
+
+\begin{align}
+\mathrm{Pr}\int_{\Omega}
+\mathbf{W}\cdot\nabla^2\mathbf{U}\,d\Omega
+&=-\mathrm{Pr}\int_{\Omega}
+\nabla\mathbf{W}:\nabla\mathbf{U}\,d\Omega
+\nonumber\\
+&\quad+\mathrm{Pr}\int_{\partial\Omega}
+\mathbf{W}\cdot\frac{\partial\mathbf{U}}{\partial n}
+\,d\Gamma
+\end{align}
+
+Substituting these expressions and rearranging yields
+
+\begin{align}
+&\int_{\Omega}\mathbf{W}\cdot
+[(\mathbf{U}\cdot\nabla)\mathbf{U}]\,d\Omega
+\nonumber\\
+&+\mathrm{Pr}\int_{\Omega}
+\nabla\mathbf{W}:\nabla\mathbf{U}\,d\Omega
+\nonumber\\
+&-\int_{\Omega}P(\nabla\cdot\mathbf{W})\,d\Omega
+\nonumber\\
+&-\mathrm{Ra}\,\mathrm{Pr}
+\int_{\Omega}\theta W_Y\,d\Omega
+=B_m
+\end{align}
+
+where the boundary contribution is
+
+\begin{align}
+B_m={}&-\int_{\partial\Omega}
+P(\mathbf{W}\cdot\mathbf{n})\,d\Gamma
+\nonumber\\
+&+\mathrm{Pr}\int_{\partial\Omega}
+\mathbf{W}\cdot\frac{\partial\mathbf{U}}{\partial n}
+\,d\Gamma
+\end{align}
+
+For homogeneous no-slip velocity boundary conditions,
+$\mathbf{W}=\mathbf{0}$ on $\partial\Omega$, and therefore
+$B_m=0$.
+
+Hence, the final dimensionless weak form of the momentum equation
+is
+
+\begin{equation}
+\boxed{
+\begin{aligned}
+&\int_{\Omega}\mathbf{W}\cdot
+[(\mathbf{U}\cdot\nabla)\mathbf{U}]\,d\Omega\\
+&+\mathrm{Pr}\int_{\Omega}
+\nabla\mathbf{W}:\nabla\mathbf{U}\,d\Omega\\
+&-\int_{\Omega}P(\nabla\cdot\mathbf{W})\,d\Omega\\
+&-\mathrm{Ra}\,\mathrm{Pr}
+\int_{\Omega}\theta W_Y\,d\Omega=0
+\end{aligned}
+}
+\end{equation}
+
+\subsection{Weak Form of the Energy Equation}
+
+Multiplying the energy equation by the test function $\phi$
+and integrating over $\Omega$ gives
+
+\begin{align}
+&\int_{\Omega}\phi
+\left(
+U\frac{\partial\theta}{\partial X}
++V\frac{\partial\theta}{\partial Y}
+\right)d\Omega \nonumber\\
+&=\int_{\Omega}\phi
+\left(
+\frac{\partial^2\theta}{\partial X^2}
++\frac{\partial^2\theta}{\partial Y^2}
+\right)d\Omega
+\end{align}
+
+Applying integration by parts to the diffusion term gives
+
+\begin{align}
+&\int_{\Omega}\phi
+\left(
+\frac{\partial^2\theta}{\partial X^2}
++\frac{\partial^2\theta}{\partial Y^2}
+\right)d\Omega \nonumber\\
+&=-\int_{\Omega}
+\left(
+\frac{\partial\phi}{\partial X}
+\frac{\partial\theta}{\partial X}
++\frac{\partial\phi}{\partial Y}
+\frac{\partial\theta}{\partial Y}
+\right)d\Omega \nonumber\\
+&\quad+\int_{\partial\Omega}
+\phi\frac{\partial\theta}{\partial n}\,d\Gamma
+\end{align}
+
+Rearranging gives
+
+\begin{align}
+&\int_{\Omega}\phi
+\left(
+U\frac{\partial\theta}{\partial X}
++V\frac{\partial\theta}{\partial Y}
+\right)d\Omega \nonumber\\
+&+\int_{\Omega}\nabla\phi\cdot\nabla\theta\,d\Omega
+=B_\theta
+\end{align}
+
+where the boundary contribution is
+
+\begin{equation}
+B_\theta=
+\int_{\partial\Omega}
+\phi\frac{\partial\theta}{\partial n}\,d\Gamma
+\end{equation}
+
+For the prescribed-temperature vertical walls, the test function
+$\phi$ vanishes on the boundary. For the insulated top and bottom
+walls, $\partial\theta/\partial n=0$. Therefore, $B_\theta=0$,
+and the dimensionless weak form of the energy equation becomes
+
+\begin{equation}
+\boxed{
+\begin{aligned}
+&\int_{\Omega}\phi
+\left(
+U\frac{\partial\theta}{\partial X}
++V\frac{\partial\theta}{\partial Y}
+\right)d\Omega\\
+&+\int_{\Omega}\nabla\phi\cdot\nabla\theta\,d\Omega=0
+\end{aligned}
+}
+\end{equation}
+
+\subsection{Summary of the Dimensionless Weak Forms}
+
+The final dimensionless weak-form governing equations for the
+two-dimensional pure-water natural convection model are:
+
+\textbf{Continuity:}
+\begin{equation}
+\int_{\Omega}q\,\nabla\cdot\mathbf{U}\,d\Omega=0
+\end{equation}
+
+\textbf{Momentum:}
+\begin{equation}
+\begin{aligned}
+&\int_{\Omega}\mathbf{W}\cdot
+[(\mathbf{U}\cdot\nabla)\mathbf{U}]\,d\Omega\\
+&+\mathrm{Pr}\int_{\Omega}
+\nabla\mathbf{W}:\nabla\mathbf{U}\,d\Omega\\
+&-\int_{\Omega}P(\nabla\cdot\mathbf{W})\,d\Omega\\
+&-\mathrm{Ra}\,\mathrm{Pr}
+\int_{\Omega}\theta W_Y\,d\Omega=0
+\end{aligned}
+\end{equation}
+
+\textbf{Energy:}
+\begin{equation}
+\begin{aligned}
+&\int_{\Omega}\phi
+\left(
+U\frac{\partial\theta}{\partial X}
++V\frac{\partial\theta}{\partial Y}
+\right)d\Omega\\
+&+\int_{\Omega}\nabla\phi\cdot\nabla\theta\,d\Omega=0
+\end{aligned}
+\end{equation}
+
+\end{document}
