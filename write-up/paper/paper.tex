@@ -1,8 +1,73 @@
-\documentclass{elsarticle}
+\documentclass[preprint,3p,number]{elsarticle}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{subcaption}
+% \usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{booktabs}
+\usepackage{siunitx}
+\usepackage[noabbrev]{cleveref}
+\usepackage{lipsum}
+
+\bibliographystyle{elsarticle-num}
+
+\journal{Journal Name}
 
 \begin{document}
-    This is a \LaTeX\ document. This is an equation
-    \begin{equation}
-        a = b.
-    \end{equation}
+
+\begin{frontmatter}
+%% Title
+\title{Title of the Paper}
+
+%% Authors and affiliations
+\author[inst2]{Chew Qin Ying}
+\affiliation[inst2]{organization={Department of Mechanical Engineering, Faculty
+of Engineering, University of Malaya}, addressline={Jalan Universiti},
+city={Kuala Lumpur}, postcode={50603}, country={Malaysia}}
+
+\author[inst1]{Adeeb Arif Kor\corref{cor1}}
+\cortext[cor1]{Corresponding author.}
+\ead{adeebkor@um.edu.my}
+\affiliation[inst1]{organization={Centre for Energy Sciences, Faculty of
+                     Engineering, University of Malaya}, city={Kuala Lumpur},
+                     country={Malaysia}}
+
+%% Abstract
+\begin{abstract}
+    This is the abstract of the paper.
+\end{abstract}
+
+\begin{keyword}
+    keyword 1 \sep
+    keyword 2 \sep
+    keyword 3
+\end{keyword}
+
+\end{frontmatter}
+
+\section{Introduction}
+
+\section{Methods}
+
+This section can be modified to better specify the methods used in the study.
+You are encouraged to refer to relevant papers that is in the same field of
+study.
+
+\section{Results}
+
+This section can be modified to better specify the results used in the study.
+You are encouraged to refer to relevant papers that is in the same field of
+study.
+
+\section{Discussion}
+
+This section can be modified to better specify the discussion used in the study.
+You are encouraged to refer to relevant papers that is in the same field of
+study.
+
+\section{Conclusion}
+
 \end{document}
