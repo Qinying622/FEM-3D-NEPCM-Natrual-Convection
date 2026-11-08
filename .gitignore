@@ -9,6 +9,7 @@
 *.lof
 *.log
 *.lot
+*.out
 *.pdf
 *.spl
 *.synctex.gz
